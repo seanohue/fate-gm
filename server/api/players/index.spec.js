@@ -28,7 +28,7 @@ var thingIndex = proxyquire('./index.js', {
   './player.controller': playerCtrlStub
 });
 
-describe('Thing API Router:', function() {
+describe('Player API Router:', function() {
 
   it('should return an express router instance', function() {
     playerIndex.should.equal(routerStub);
