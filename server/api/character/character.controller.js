@@ -10,7 +10,7 @@
 'use strict';
 
 import _ from 'lodash';
-import Player from './player.model';
+import Character from './character.model';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -61,41 +61,41 @@ function handleError(res, statusCode) {
 
 // Gets a list of Things
 export function index(req, res) {
-  return Player.find().exec()
+  return Character.find().exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// Gets a single Player from the DB
+// Gets a single Character from the DB
 export function show(req, res) {
-  return Player.findById(req.params.id).exec()
+  return Character.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// Creates a new Player in the DB
+// Creates a new Character in the DB
 export function create(req, res) {
-  return Player.create(req.body)
+  return Character.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
 }
 
-// Updates an existing Player in the DB
+// Updates an existing Character in the DB
 export function update(req, res) {
   if (req.body._id) {
     delete req.body._id;
   }
-  return Player.findById(req.params.id).exec()
+  return Character.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(saveUpdates(req.body))
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// Deletes a Player from the DB
+// Deletes a Character from the DB
 export function destroy(req, res) {
-  return Player.findById(req.params.id).exec()
+  return Character.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))
     .catch(handleError(res));
