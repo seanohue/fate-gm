@@ -4,7 +4,7 @@
 
 'use strict';
 
-import ThingEvents from './thing.events';
+import ThingEvents from './character.events';
 
 // Model events to emit
 const events = ['save', 'remove'];
@@ -12,7 +12,7 @@ const events = ['save', 'remove'];
 // Bind model events to socket events
 export function register(socket) {
   events.forEach(event => {
-    const listener = createListener('thing:' + event, socket);
+    const listener = createListener('character:' + event, socket);
 
     ThingEvents.on(event, listener);
     socket.on('disconnect', removeListener(event, listener));

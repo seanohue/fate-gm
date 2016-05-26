@@ -4,7 +4,7 @@
  */
 
 'use strict';
-import Thing from '../api/thing/thing.model';
+import Thing from '../api/character/character.model';
 import User from '../api/user/user.model';
 
 Thing.find({}).remove()

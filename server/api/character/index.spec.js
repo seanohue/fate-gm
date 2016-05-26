@@ -19,7 +19,7 @@ var routerStub = {
 };
 
 // require the index with our stubbed out modules
-var thingIndex = proxyquire('./index.js', {
+var characterIndex = proxyquire('./index.js', {
   'express': {
     Router: function() {
       return routerStub;

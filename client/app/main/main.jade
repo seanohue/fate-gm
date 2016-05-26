@@ -7,15 +7,15 @@ header#banner.hero-unit
   .row
     .col-lg-12
       h1.page-header Features:
-      ul.nav.nav-tabs.nav-stacked.col-md-4.col-lg-4.col-sm-6(ng-repeat='thing in $ctrl.awesomeThings')
+      ul.nav.nav-tabs.nav-stacked.col-md-4.col-lg-4.col-sm-6(ng-repeat='character in $ctrl.awesomeThings')
         li
-          a(href='#', uib-tooltip='{{thing.info}}')
-            | {{thing.name}}
-            button.close(type='button', ng-click='$ctrl.deleteThing(thing)') &times;
+          a(href='#', uib-tooltip='{{character.info}}')
+            | {{character.name}}
+            button.close(type='button', ng-click='$ctrl.deleteThing(character)') &times;
 
-  form.thing-form
+  form.character-form
     label Chat/Shared Notes
     p.input-group
-      input.form-control(type='text', placeholder='Add a new thing here.', ng-model='$ctrl.newThing')
+      input.form-control(type='text', placeholder='Add a new character here.', ng-model='$ctrl.newThing')
       span.input-group-btn
         button.btn.btn-primary(type='submit', ng-click='$ctrl.addThing()') Add New

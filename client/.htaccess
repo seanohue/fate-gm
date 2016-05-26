@@ -181,7 +181,7 @@ ErrorDocument 404 /404.html
 # | UTF-8 encoding                                                             |
 # ------------------------------------------------------------------------------
 
-# Use UTF-8 encoding for anything served as `text/html` or `text/plain`.
+# Use UTF-8 encoding for anycharacter served as `text/html` or `text/plain`.
 AddDefaultCharset utf-8
 
 # Force UTF-8 for certain file formats.

@@ -16,7 +16,7 @@ describe('Component: mainComponent', function() {
   beforeEach(inject(function(_$httpBackend_, $http, $componentController, $rootScope, $state,
     socket) {
     $httpBackend = _$httpBackend_;
-    $httpBackend.expectGET('/api/things')
+    $httpBackend.expectGET('/api/characters')
       .respond(['HTML5 Boilerplate', 'AngularJS', 'Karma', 'Express']);
 
     scope = $rootScope.$new();
@@ -28,7 +28,7 @@ describe('Component: mainComponent', function() {
     });
   }));
 
-  it('should attach a list of things to the controller', function() {
+  it('should attach a list of characters to the controller', function() {
     mainComponent.$onInit();
     $httpBackend.flush();
     expect(mainComponent.awesomeThings.length)
