@@ -9,30 +9,28 @@
       this.socket = socket;
       this.awesomeThings = [];
 
-      $scope.$on('$destroy', function() {
-        socket.unsyncUpdates('thing');
-      });
+      $scope.$on('$destroy', () => socket.unsyncUpdates('character'));
     }
 
     $onInit() {
-      this.$http.get('/api/things')
+      this.$http.get('/api/characters')
         .then(response => {
           this.awesomeThings = response.data;
-          this.socket.syncUpdates('thing', this.awesomeThings);
+          this.socket.syncUpdates('character', this.awesomeThings);
         });
     }
 
     addThing() {
       if (this.newThing) {
-        this.$http.post('/api/things', {
+        this.$http.post('/api/characters', {
           name: this.newThing
         });
         this.newThing = '';
       }
     }
 
-    deleteThing(thing) {
-      this.$http.delete('/api/things/' + thing._id);
+    deleteThing(character) {
+      this.$http.delete('/api/characters/' + character._id);
     }
   }
 

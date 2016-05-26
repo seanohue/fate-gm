@@ -22,13 +22,9 @@ export function register(socket) {
 
 
 function createListener(event, socket) {
-  return function(doc) {
-    socket.emit(event, doc);
-  };
+  return doc => socket.emit(event, doc);
 }
 
 function removeListener(event, listener) {
-  return function() {
-    ThingEvents.removeListener(event, listener);
-  };
+  return () => ThingEvents.removeListener(event, listener);
 }

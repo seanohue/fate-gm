@@ -5,14 +5,14 @@
 'use strict';
 
 import {EventEmitter} from 'events';
-import Thing from './thing.model';
-var ThingEvents = new EventEmitter();
+import Character from './character.model';
+const CharacterEvents = new EventEmitter();
 
 // Set max event listeners (0 == unlimited)
-ThingEvents.setMaxListeners(0);
+CharacterEvents.setMaxListeners(0);
 
 // Model events
-var events = {
+const events = {
   'save': 'save',
   'remove': 'remove'
 };
@@ -20,14 +20,14 @@ var events = {
 // Register the event emitter to the model events
 for (var e in events) {
   var event = events[e];
-  Thing.schema.post(e, emitEvent(event));
+  Character.schema.post(e, emitEvent(event));
 }
 
 function emitEvent(event) {
-  return function(doc) {
-    ThingEvents.emit(event + ':' + doc._id, doc);
-    ThingEvents.emit(event, doc);
+  return doc => {
+    CharacterEvents.emit(event + ':' + doc._id, doc);
+    CharacterEvents.emit(event, doc);
   }
 }
 
-export default ThingEvents;
+export default CharacterEvents;

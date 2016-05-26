@@ -3,7 +3,7 @@
 var app = require('../..');
 import request from 'supertest';
 
-var newThing;
+var newChar;
 
 describe('Thing API:', function() {
 
@@ -44,14 +44,14 @@ describe('Thing API:', function() {
           if (err) {
             return done(err);
           }
-          newThing = res.body;
+          newChar = res.body;
           done();
         });
     });
 
     it('should respond with the newly created thing', function() {
-      newThing.name.should.equal('New Thing');
-      newThing.info.should.equal('This is the brand new thing!!!');
+      newChar.name.should.equal('New Thing');
+      newChar.info.should.equal('This is the brand new thing!!!');
     });
 
   });
@@ -61,7 +61,7 @@ describe('Thing API:', function() {
 
     beforeEach(function(done) {
       request(app)
-        .get('/api/things/' + newThing._id)
+        .get('/api/things/' + newChar._id)
         .expect(200)
         .expect('Content-Type', /json/)
         .end((err, res) => {
@@ -89,7 +89,7 @@ describe('Thing API:', function() {
 
     beforeEach(function(done) {
       request(app)
-        .put('/api/things/' + newThing._id)
+        .put('/api/things/' + newChar._id)
         .send({
           name: 'Updated Thing',
           info: 'This is the updated thing!!!'
@@ -120,7 +120,7 @@ describe('Thing API:', function() {
 
     it('should respond with 204 on successful removal', function(done) {
       request(app)
-        .delete('/api/things/' + newThing._id)
+        .delete('/api/things/' + newChar._id)
         .expect(204)
         .end((err, res) => {
           if (err) {
@@ -132,7 +132,7 @@ describe('Thing API:', function() {
 
     it('should respond with 404 when thing does not exist', function(done) {
       request(app)
-        .delete('/api/things/' + newThing._id)
+        .delete('/api/things/' + newChar._id)
         .expect(404)
         .end((err, res) => {
           if (err) {

@@ -2,10 +2,11 @@
 
 import mongoose from 'mongoose';
 
-var ThingSchema = new mongoose.Schema({
+//TODO: Update to reflect FATE character sheet.
+const CharacterSchema = new mongoose.Schema({
   name: String,
   info: String,
   active: Boolean
 });
 
-export default mongoose.model('Thing', ThingSchema);
+export default mongoose.model('Character', CharacterSchema);
