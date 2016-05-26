@@ -7,17 +7,17 @@
 import ThingEvents from './thing.events';
 
 // Model events to emit
-var events = ['save', 'remove'];
+const events = ['save', 'remove'];
 
+// Bind model events to socket events
 export function register(socket) {
-  // Bind model events to socket events
-  for (var i = 0, eventsLength = events.length; i < eventsLength; i++) {
-    var event = events[i];
-    var listener = createListener('thing:' + event, socket);
+  events.forEach(event => {
+    const listener = createListener('thing:' + event, socket);
 
     ThingEvents.on(event, listener);
     socket.on('disconnect', removeListener(event, listener));
-  }
+  });
+
 }
 
 
