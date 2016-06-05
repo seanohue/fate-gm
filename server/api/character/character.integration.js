@@ -79,7 +79,7 @@ describe('Thing API:', function() {
 
     it('should respond with the requested character', function() {
       character.name.should.equal('New Thing');
-      character.info.should.equal('This is the brand new character!!!');
+      character.desc.should.equal('This is the brand new character!!!');
     });
 
   });
