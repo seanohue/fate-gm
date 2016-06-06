@@ -19,9 +19,9 @@ const CharacterSchema = new mongoose.Schema({
   stunts: [ String ],
 
   refresh: { type: Number, default: 3 },
-  fate: { type: Number, default: 3}
+  fate: { type: Number, default: 3},
 
-  active: Boolean
+  active: Boolean,
 });
 
 export default mongoose.model('Character', CharacterSchema);

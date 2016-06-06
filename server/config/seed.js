@@ -4,38 +4,23 @@
  */
 
 'use strict';
-import Thing from '../api/character/character.model';
+import Character from '../api/character/character.model';
 import User from '../api/user/user.model';
 
-Thing.find({}).remove()
+Character.find({}).remove()
   .then(() => {
-    Thing.create({
-      name: 'Development Tools',
-      info: 'Integration with popular tools such as Bower, Grunt, Babel, Karma, ' +
-             'Mocha, JSHint, Node Inspector, Livereload, Protractor, Jade, ' +
-             'Stylus, Sass, and Less.'
-    }, {
-      name: 'Server and Client integration',
-      info: 'Built with a powerful and fun stack: MongoDB, Express, ' +
-             'AngularJS, and Node.'
-    }, {
-      name: 'Smart Build System',
-      info: 'Build system ignores `spec` files, allowing you to keep ' +
-             'tests alongside code. Automatic injection of scripts and ' +
-             'styles into your index.html'
-    }, {
-      name: 'Modular Structure',
-      info: 'Best practice client and server structures allow for more ' +
-             'code reusability and maximum scalability'
-    }, {
-      name: 'Optimized Build',
-      info: 'Build process packs up your templates as a single JavaScript ' +
-             'payload, minifies your scripts/css/images, and rewrites asset ' +
-             'names for caching.'
-    }, {
-      name: 'Deployment Ready',
-      info: 'Easily deploy your app to Heroku or Openshift with the heroku ' +
-             'and openshift subgenerators'
+    Character.create({
+      name: "Beeblebrox",
+      desc: "A self-righteous bastard of a space pirate.",
+      concept: "Alien space pirate with three arms, who is never wrong.",
+      trouble: "On the lam from the space merchant's guild's protectors after mouthing off. Also, mouthing off.",
+      aspects: ["Excellent navigator", "Calm yet sassy when under fire", "Intimate knowledge of starship weaponry"],
+      skills: [
+        { name: "Spacecraft piloting", level: 3 },
+        { name: "Sarcasm", level: 5 },
+      ],
+      stunts: ["When under fire, I can make disarmingly sarcastic quips to improve the confidence of my comrades and roast the enemies."],
+      active: true
     });
   });
 
