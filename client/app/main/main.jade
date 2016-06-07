@@ -12,6 +12,11 @@ header#banner.hero-unit
           a(href='#', uib-tooltip='{{character.desc}}')
             | {{character.name}}
             button.close(type='button', ng-click='$ctrl.deleteCharacter(character)') &times;
+          .char-desc {{character.desc}}
+          .char-concept-label High Concept: 
+          .char-concept {{character.concept}}
+          .char-trouble-label Trouble:
+          .char-trouble {{character.trouble}}
 
   form.character-form
     label Add character
