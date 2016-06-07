@@ -7,7 +7,7 @@
     constructor($http, $scope, socket) {
       this.$http = $http;
       this.socket = socket;
-      this.awesomeThings = [];
+      this.characters = [];
 
       $scope.$on('$destroy', () => socket.unsyncUpdates('character'));
     }
@@ -20,16 +20,16 @@
         });
     }
 
-    addThing() {
-      if (this.newThing) {
+    addCharacter() {
+      if (this.newCharacter) {
         this.$http.post('/api/characters', {
-          name: this.newThing
+          name: this.newCharacter
         });
-        this.newThing = '';
+        this.newCharacter = '';
       }
     }
 
-    deleteThing(character) {
+    deleteCharacter(character) {
       this.$http.delete('/api/characters/' + character._id);
     }
   }

@@ -31,7 +31,7 @@ describe('Component: mainComponent', function() {
   it('should attach a list of characters to the controller', function() {
     mainComponent.$onInit();
     $httpBackend.flush();
-    expect(mainComponent.awesomeThings.length)
-      .toBe(4);
+    expect(mainComponent.characters.length)
+      .toBe(1);
   });
 });

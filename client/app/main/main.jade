@@ -6,16 +6,16 @@ header#banner.hero-unit
 .container
   .row
     .col-lg-12
-      h1.page-header Features:
-      ul.nav.nav-tabs.nav-stacked.col-md-4.col-lg-4.col-sm-6(ng-repeat='character in $ctrl.awesomeThings')
+      h1.page-header Characters:
+      ul.nav.nav-tabs.nav-stacked.col-md-4.col-lg-4.col-sm-6(ng-repeat='character in $ctrl.characters')
         li
           a(href='#', uib-tooltip='{{character.desc}}')
             | {{character.name}}
-            button.close(type='button', ng-click='$ctrl.deleteThing(character)') &times;
+            button.close(type='button', ng-click='$ctrl.deleteCharacter(character)') &times;
 
   form.character-form
     label Chat/Shared Notes
     p.input-group
-      input.form-control(type='text', placeholder='Add a new character here.', ng-model='$ctrl.newThing')
+      input.form-control(type='text', placeholder='Add a new character here.', ng-model='$ctrl.newCharacter')
       span.input-group-btn
-        button.btn.btn-primary(type='submit', ng-click='$ctrl.addThing()') Add New
+        button.btn.btn-primary(type='submit', ng-click='$ctrl.addCharacter()') Add New
