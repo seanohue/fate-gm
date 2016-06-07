@@ -9,14 +9,14 @@ header#banner.hero-unit
       h1.page-header Characters:
       ul.nav.nav-tabs.nav-stacked.col-md-4.col-lg-4.col-sm-6(ng-repeat='character in $ctrl.characters')
         li
-          a(href='#', uib-tooltip='{{character.desc}}')
+          a.character-name(href='#', uib-tooltip='{{character.desc}}')
             | {{character.name}}
             button.close(type='button', ng-click='$ctrl.deleteCharacter(character)') &times;
-          .char-desc {{character.desc}}
-          .char-concept-label High Concept: 
-          .char-concept {{character.concept}}
-          .char-trouble-label Trouble:
-          .char-trouble {{character.trouble}}
+          .character.text-muted {{character.desc}}
+          .character-label.center-block.bg-info High Concept:  
+          .character.center-block.text-primary.bg-info {{character.concept}}
+          .character-label.center-block.bg-danger Trouble: 
+          .character.center-block.text-danger.bg-danger {{character.trouble}}
 
   form.character-form
     label Add character
