@@ -15,7 +15,7 @@
     $onInit() {
       this.$http.get('/api/characters')
         .then(response => {
-          this.awesomeThings = response.data;
+          this.characters = response.data;
           this.socket.syncUpdates('character', this.awesomeThings);
         });
     }
